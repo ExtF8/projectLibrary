@@ -4,25 +4,71 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Library</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="styles.css" />
         <script src="script.js" defer></script>
     </head>
     <body>
-        <header>
-            <h1>My Library</h1>
+        <header class="header">
+            <h1>Library</h1>
         </header>
         <main class="main-container">
-            <button class="new-book-btn" id="newBookBtn">Add a new book</button>
+            <div class="new-book-btn-container">
+                <button class="new-book-btn button-89" id="newBookBtn">
+                    add new book
+                </button>
+            </div>
             <section class="library-container">
-                <div class="book-card" id="bookCard">
-                    <div>
-                        
+                <div class="book-card-container">
+                    <div class="book-card">
+                        <h3>Title</h3>
+                        <p>Author</p>
+                        <p>Pages</p>
+                        <div class="button-container">
+                            <button class="button-89">read?</button>
+                            <button class="button-89">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-card-container">
+                    <div class="book-card">
+                        <h3>Title</h3>
+                        <p>Author</p>
+                        <p>Pages</p>
+                        <div class="button-container">
+                            <button class="button-89">read?</button>
+                            <button class="button-89">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-card-container">
+                    <div class="book-card">
+                        <h3>Title</h3>
+                        <p>Author</p>
+                        <p>Pages</p>
+                        <div class="button-container">
+                            <button class="button-89">read?</button>
+                            <button class="button-89">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-card-container">
+                    <div class="book-card">
+                        <h3>Title</h3>
+                        <p>Author</p>
+                        <p>Pages</p>
+                        <div class="button-container">
+                            <button class="button-89">read?</button>
+                            <button class="button-89">Remove</button>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        <footer></footer>
-        <div id="addBookModal">
+        <footer class="footer">
+            <p>Developed by</p>
+            <a href="https://github.com/ExtF8" target="_blank"><p>ExtF8</p></a>
+        </footer>
+        <!-- <div id="addBookModal">
             <form class="book-form">
                 <h2>New Book</h2>
                 <label for="author">Author</label>
@@ -59,6 +105,6 @@
                 />
                 <button type="submit">Add</button>
             </form>
-        </div>
+        </div> -->
     </body>
 </html>
