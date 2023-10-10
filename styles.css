@@ -1,0 +1,74 @@
+/* Global Configurations */
+:root {
+    --main-grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+    --main-padding: 10%;
+    --main-bg-color: #f9fafb;
+    --default-font-size: 22px;
+}
+
+/* Global Resets */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
+
+/* Body and Typography */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+@font-face {
+    font-family: odinFont;
+    src: url(./assets/fonts/Norse-Bold.otf);
+}
+
+@font-face {
+    font-family: mainFont;
+    src: url(./assets/fonts/OpenSans-Regular.ttf);
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+    font-family: mainFont;
+}
+
+/* Images and Media */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Browser-Specific Styles */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
