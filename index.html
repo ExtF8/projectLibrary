@@ -18,7 +18,7 @@
                 </button>
             </div>
             <section class="library-container">
-                <div class="book-card-container">
+                <!-- <div class="book-card-container">
                     <div class="book-card">
                         <h3>Title</h3>
                         <p>Author</p>
@@ -61,14 +61,14 @@
                             <button class="button-89">Remove</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
         </main>
         <footer class="footer">
             <p>Developed by</p>
             <a href="https://github.com/ExtF8" target="_blank"><p>ExtF8</p></a>
         </footer>
-        <!-- <div id="addBookModal">
+        <div id="addBookModal">
             <form class="book-form">
                 <h2>New Book</h2>
                 <label for="author">Author</label>
@@ -79,6 +79,7 @@
                     id="author"
                     required
                 />
+                <br />
                 <label for="title">Title</label>
                 <input
                     class="input"
@@ -87,6 +88,7 @@
                     id="title"
                     required
                 />
+                <br />
                 <label for="pages">Number of Pages</label>
                 <input
                     class="input"
@@ -95,16 +97,30 @@
                     id="pages"
                     required
                 />
-                <label for="isRead">Have you read it?</label>
-                <input
-                    class="input"
-                    type="checkbox"
-                    name="isRead"
-                    id="isRead"
-                    required
-                />
-                <button type="submit">Add</button>
+                <br />
+                <div class="checkbox-wrapper-32">
+                    <label for="isRead"> Have you read it? </label>
+                    <input type="checkbox" name="isRead" id="isRead" required />
+                    <svg
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M 10 10 L 90 90"
+                            stroke="#000"
+                            stroke-dasharray="113"
+                            stroke-dashoffset="113"
+                        ></path>
+                        <path
+                            d="M 90 10 L 10 90"
+                            stroke="#000"
+                            stroke-dasharray="113"
+                            stroke-dashoffset="113"
+                        ></path>
+                    </svg>
+                </div>
+                <button class="button-89" type="submit">Add</button>
             </form>
-        </div> -->
+        </div>
     </body>
 </html>
