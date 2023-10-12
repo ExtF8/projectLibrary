@@ -73,6 +73,7 @@ input[type="number"] {
 .main-container {
     display: flex;
     flex-direction: column;
+    padding-inline: 10%;
 }
 
 /* Add Book Button */
@@ -85,7 +86,7 @@ input[type="number"] {
 /* Library */
 .library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 42px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -94,6 +95,8 @@ input[type="number"] {
 
 /* Library Cards */
 .book-card-container {
+    min-width: 250px;
+    max-width: 300px;
     --b: 4px;
     --s: .42em;
     --color: #4545ff;
@@ -106,9 +109,7 @@ input[type="number"] {
 
 .book-card {
     background-color: #4c1d95;
-
     align-self: center;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
