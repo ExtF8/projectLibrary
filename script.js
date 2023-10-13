@@ -1,3 +1,5 @@
+// TODO add is Read indicator class
+
 document.addEventListener('DOMContentLoaded', () => {
     // Array for added books
     const myLibrary = [];
