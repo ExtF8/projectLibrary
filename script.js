@@ -1,9 +1,22 @@
 // TODO add is Read indicator class
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Query selectors for dialog modal
+    const dialog = document.querySelector('dialog');
+    const newBookBtn = document.getElementById('newBookBtn');
+
+    // Query selector for new book form submitting
+    const submitForm = document.querySelector('.book-form');
+
     // Array for added books
     const myLibrary = [];
 
+    // "Show the dialog" button opens the dialog modally
+    newBookBtn.addEventListener('click', () => {
+        dialog.showModal();
+    });
+
+    // Book object
     function Book(author, title, numberOfPages, isRead) {
         // the constructor
         this.author = author;
@@ -35,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
             bookCardContainer.className = 'book-card-container';
             bookCardContainer.innerHTML = `
                 <div class="book-card">
-                    <h3>${book.title}</h3>
-                    <p>${book.author}</p>
-                    <p>${book.numberOfPages}</p>
+                    <h3>Title:
+                    ${book.title}</h3>
+                    <p>Author: ${book.author}</p>
+                    <p>Pages: ${book.numberOfPages}</p>
                     <div class="button-container">
                         <button class="button-89" onclick='toggleReadStatus(${index})'>read?</button>
                         <button class="button-89" onclick='removeBook(${index})'>Remove</button>
@@ -64,9 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.toggleReadStatus = toggleReadStatus;
     window.removeBook = removeBook;
 
-    // Query selector for new book form submitting
-    const submitForm = document.querySelector('.book-form');
-
     submitForm.addEventListener('submit', (event) => {
         // Prevent default to avoid Submit error
         event.preventDefault();
@@ -80,23 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add book to library
         addBookToLibrary(author, title, numberOfPages, isRead);
 
+        // Closes the dialog
+        document.getElementById('addBookModal').close();
+
+        // Reset form after closing
         event.target.reset();
     });
 
     displayBooks();
-
-    // Query selectors for dialog modal
-    const dialog = document.querySelector('dialog');
-    const newBookBtn = document.getElementById('newBookBtn');
-    const addAndCloseBtn = document.querySelector('dialog button');
-
-    // "Show the dialog" button opens the dialog modally
-    newBookBtn.addEventListener('click', () => {
-        dialog.showModal();
-    });
-
-    // "Close" button closes the dialog
-    addAndCloseBtn.addEventListener('click', () => {
-        dialog.close();
-    });
 });
