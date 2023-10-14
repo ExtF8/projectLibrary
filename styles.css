@@ -154,6 +154,7 @@ input[type="number"] {
 #addBookModal {
     position: absolute;
     z-index: 1;
+    /* calculates values from elements top left corner */
     top: 25%;
     left: 35%;
     transition: 0.2s ease-in-out;
@@ -167,6 +168,7 @@ dialog {
 
 /* Footer */
 .footer {
+    /* absolute value causes to float above content */
     position: absolute;
     bottom: 0;
     display: flex;
