@@ -53,16 +53,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Author: ${book.author}</p>
                     <p>Pages: ${book.numberOfPages}</p>
                     <div class="button-container">
-                        <button class="button-89" onclick='toggleReadStatus(${index})'>read?</button>
-                        <button class="button-89" onclick='removeBook(${index})'>Remove</button>
+                        <button class="button-89 toggle-read" data-index='${index}'>read?</button>
+                        <button class="button-89 remove-book" data-index='${index}'>Remove</button>
                     </div>
                 </div>
              `;
 
+            const readButton = bookCardContainer.querySelector('.toggle-read');
+            const removeButton =
+                bookCardContainer.querySelector('.remove-book');
+
+            // Toggle status of is book read boolean
+            readButton.addEventListener('click', (event) => {
+                const index = parseInt(event.target.getAttribute('data-index'), 10);
+                toggleReadStatus(index);
+            });
+            // Remove book
+            removeButton.addEventListener('click', (event) => {
+                const index = parseInt(event.target.getAttribute('data-index'), 10);
+                removeBook(index);
+            });
+
             libraryContainer.appendChild(bookCardContainer);
         });
     }
-
+    
     // Toggle status of is book read boolean
     function toggleReadStatus(index) {
         myLibrary[index].toggleReadStatus();
@@ -74,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         myLibrary.splice(index, 1);
         displayBooks();
     }
-
-    window.toggleReadStatus = toggleReadStatus;
-    window.removeBook = removeBook;
 
     submitForm.addEventListener('submit', (event) => {
         // Prevent default to avoid Submit error
