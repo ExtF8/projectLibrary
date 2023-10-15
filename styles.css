@@ -1,4 +1,4 @@
-/* TODO add is Read indicator class */
+/* TODO swap checkbox place with question  */
 
 /* Global Resets */
 *,
@@ -95,7 +95,7 @@ input {
 
 .library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 42px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -110,8 +110,7 @@ input {
 
 .book-card-container,
 #addBookModal {
-    min-width: 300px;
-    max-width: 400px;
+    width: 400px;
     --b: 4px;
     --s: .42em;
     --color: #4545ff;
@@ -133,6 +132,7 @@ input {
 
 .book-card h3,
 .book-card p,
+.book-card label,
 .book-form h2,
 .book-form label,
 .book-form input {

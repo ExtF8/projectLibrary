@@ -1,5 +1,3 @@
-// TODO add is Read indicator class
-
 document.addEventListener('DOMContentLoaded', () => {
     // Query selectors for dialog modal
     const dialog = document.querySelector('dialog');
@@ -50,10 +48,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="book-card">
                     <h3>Title:
                     ${book.title}</h3>
-                    <p>Author: ${book.author}</p>
+                    <p>By: ${book.author}</p>
                     <p>Pages: ${book.numberOfPages}</p>
                     <div class="button-container">
-                        <button class="button-89 toggle-read" data-index='${index}'>read?</button>
+                        <div class="checkbox-wrapper-32">
+                            <label for="isRead"> Have you read it? </label>
+                            <input type="checkbox" id="isRead" class="toggle-read" data-index="${index}"/>
+                            <svg
+                                viewBox="0 0 100 100"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M 10 10 L 90 90"
+                                    stroke="#000"
+                                    stroke-dasharray="113"
+                                    stroke-dashoffset="113"
+                                ></path>
+                                <path
+                                    d="M 90 10 L 10 90"
+                                    stroke="#000"
+                                    stroke-dasharray="113"
+                                    stroke-dashoffset="113"
+                                ></path>
+                            </svg>
+                        </div>
                         <button class="button-89 remove-book" data-index='${index}'>Remove</button>
                     </div>
                 </div>
@@ -65,19 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Toggle status of is book read boolean
             readButton.addEventListener('click', (event) => {
-                const index = parseInt(event.target.getAttribute('data-index'), 10);
+                const index = parseInt(
+                    event.target.getAttribute('data-index'),
+                    10
+                );
                 toggleReadStatus(index);
             });
+            readButton.checked = book.isRead
+
             // Remove book
             removeButton.addEventListener('click', (event) => {
-                const index = parseInt(event.target.getAttribute('data-index'), 10);
+                const index = parseInt(
+                    event.target.getAttribute('data-index'),
+                    10
+                );
                 removeBook(index);
             });
 
             libraryContainer.appendChild(bookCardContainer);
         });
     }
-    
+
     // Toggle status of is book read boolean
     function toggleReadStatus(index) {
         myLibrary[index].toggleReadStatus();
