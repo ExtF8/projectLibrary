@@ -1,5 +1,5 @@
 /* TODO add is Read indicator class */
-/* FIX layout issues */
+/* TODO layout issues - footer */
 
 /* Global Resets */
 *,
@@ -18,7 +18,7 @@ html {
 /* Body and Typography */
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: #2e1065;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -89,9 +89,13 @@ input[type="number"] {
 
 
 /* Library */
+input {
+    padding-inline: 4px;
+}
+
 .library-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 42px;
     margin-top: 20px;
     margin-bottom: 50px;
@@ -99,10 +103,15 @@ input[type="number"] {
 }
 
 /* Library Cards and Add Book Modal*/
+.book-card-container {
+    align-self: baseline;
+    justify-self: center;
+}
+
 .book-card-container,
 #addBookModal {
-    min-width: 250px;
-    max-width: 300px;
+    min-width: 300px;
+    max-width: 400px;
     --b: 4px;
     --s: .42em;
     --color: #4545ff;
@@ -116,11 +125,10 @@ input[type="number"] {
 .book-card,
 .book-form {
     background-color: #4c1d95;
-    align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 10%;
+    padding: 5%;
 }
 
 .book-card h3,
@@ -153,13 +161,11 @@ input[type="number"] {
 
 #addBookModal {
     position: absolute;
-    z-index: 1;
-    /* calculates values from elements top left corner */
-    top: 25%;
-    left: 35%;
-    transition: 0.2s ease-in-out;
-    min-width: 400px;
-    max-width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    transition: 0.3s ease-in-out;
 }
 
 dialog {
@@ -168,6 +174,7 @@ dialog {
 
 /* Footer */
 .footer {
+    /* TODO */
     /* absolute value causes to float above content */
     position: absolute;
     bottom: 0;
