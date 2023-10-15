@@ -147,6 +147,7 @@ input {
     background-color: #4545ff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     border: none;
+    margin-bottom: 10px;
 }
 
 .book-card .button-container {
@@ -266,7 +267,7 @@ a:hover {
 .checkbox-wrapper-32 label {
     display: inline-block;
 
-    padding: 0 calc(var(--size) + 7px) 0 0 ;
+    padding: 0 calc(var(--size) + 7px) 0 0;
 }
 
 .checkbox-wrapper-32 label::before {
