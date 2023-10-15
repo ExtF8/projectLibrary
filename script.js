@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Query selector for new book form submitting
     const submitForm = document.querySelector('.book-form');
 
+    // Query selector for Library container
+    const libraryContainer = document.querySelector('.library-container');
+
     // Array for added books
     const myLibrary = [];
 
@@ -36,72 +39,84 @@ document.addEventListener('DOMContentLoaded', () => {
         displayBooks();
     }
 
+    // Function for creating book card container
+    function createBookCardContainer(book, index) {
+        const bookCardContainer = document.createElement('div');
+
+        bookCardContainer.className = 'book-card-container';
+
+        bookCardContainer.innerHTML = `
+            <div class="book-card">
+                <h3>Title:
+                ${book.title}</h3>
+                <p>By: ${book.author}</p>
+                <p>Pages: ${book.numberOfPages}</p>
+                <div class="button-container">
+                    <div class="checkbox-wrapper-32">
+                        <label for="isRead"> Have you read it? </label>
+                        <input type="checkbox" id="isRead" class="toggle-read" data-index="${index}"/>
+                        <svg
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M 10 10 L 90 90"
+                                stroke="#000"
+                                stroke-dasharray="113"
+                                stroke-dashoffset="113"
+                            ></path>
+                            <path
+                                d="M 90 10 L 10 90"
+                                stroke="#000"
+                                stroke-dasharray="113"
+                                stroke-dashoffset="113"
+                            ></path>
+                        </svg>
+                    </div>
+                    <button class="button-89 remove-book" data-index='${index}'>Remove</button>
+                </div>
+            </div>
+        `;
+
+        attachEventListenersToBookCard(bookCardContainer, book, index);
+
+        return bookCardContainer;
+    }
+
+    // Function for attaching query selectors to book card
+    function attachEventListenersToBookCard(bookCardContainer, book, index) {
+        const readButton = bookCardContainer.querySelector('.toggle-read');
+        const removeButton = bookCardContainer.querySelector('.remove-book');
+
+        // Event listeners
+        readButton.addEventListener('click', handleBookIsReadClick);
+        removeButton.addEventListener('click', removeBookFromLibrary);
+
+        // Initializes checkbox
+        readButton.checked = book.isRead;
+    }
+
     // Function for displaying and adding books in library
     function displayBooks() {
-        const libraryContainer = document.querySelector('.library-container');
         libraryContainer.innerHTML = '';
 
         myLibrary.forEach((book, index) => {
-            const bookCardContainer = document.createElement('div');
-            bookCardContainer.className = 'book-card-container';
-            bookCardContainer.innerHTML = `
-                <div class="book-card">
-                    <h3>Title:
-                    ${book.title}</h3>
-                    <p>By: ${book.author}</p>
-                    <p>Pages: ${book.numberOfPages}</p>
-                    <div class="button-container">
-                        <div class="checkbox-wrapper-32">
-                            <label for="isRead"> Have you read it? </label>
-                            <input type="checkbox" id="isRead" class="toggle-read" data-index="${index}"/>
-                            <svg
-                                viewBox="0 0 100 100"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M 10 10 L 90 90"
-                                    stroke="#000"
-                                    stroke-dasharray="113"
-                                    stroke-dashoffset="113"
-                                ></path>
-                                <path
-                                    d="M 90 10 L 10 90"
-                                    stroke="#000"
-                                    stroke-dasharray="113"
-                                    stroke-dashoffset="113"
-                                ></path>
-                            </svg>
-                        </div>
-                        <button class="button-89 remove-book" data-index='${index}'>Remove</button>
-                    </div>
-                </div>
-             `;
-
-            const readButton = bookCardContainer.querySelector('.toggle-read');
-            const removeButton =
-                bookCardContainer.querySelector('.remove-book');
-
-            // Toggle status of is book read boolean
-            readButton.addEventListener('click', (event) => {
-                const index = parseInt(
-                    event.target.getAttribute('data-index'),
-                    10
-                );
-                toggleReadStatus(index);
-            });
-            readButton.checked = book.isRead
-
-            // Remove book
-            removeButton.addEventListener('click', (event) => {
-                const index = parseInt(
-                    event.target.getAttribute('data-index'),
-                    10
-                );
-                removeBook(index);
-            });
-
+            const bookCardContainer = createBookCardContainer(book, index);
             libraryContainer.appendChild(bookCardContainer);
         });
+    }
+
+    // Event listeners for read button toggle and remove book from library
+    // Toggle status of is book read boolean
+    function handleBookIsReadClick(event) {
+        const index = parseInt(event.target.getAttribute('data-index'), 10);
+        toggleReadStatus(index);
+    }
+
+    // Remove book
+    function removeBookFromLibrary(event) {
+        const index = parseInt(event.target.getAttribute('data-index'), 10);
+        removeBook(index);
     }
 
     // Toggle status of is book read boolean
