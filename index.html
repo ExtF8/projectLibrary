@@ -39,14 +39,15 @@
             <form class="book-form">
                 <h2>New Book</h2>
                 <label for="author">Author</label>
-                <input class="input" type="text" id="author" required />
+                <input class="input" name="author" type="text" id="author" required />
                 <br />
                 <label for="title">Title</label>
-                <input class="input" type="text" id="title" required />
+                <input class="input" name="title" type="text" id="title" required />
                 <br />
                 <label for="pages">Number of Pages</label>
                 <input
                     id="pages"
+                    name="pages"
                     class="input"
                     type="number"
                     inputmode="numeric"
@@ -57,7 +58,7 @@
                 <br />
                 <div class="checkbox-wrapper-32">
                     <label for="isRead"> Have you read it? </label>
-                    <input type="checkbox" id="isRead" />
+                    <input id="isRead" name="isRead" type="checkbox" />
                     <svg
                         viewBox="0 0 100 100"
                         xmlns="http://www.w3.org/2000/svg"
