@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             bookCardContainer.className = 'book-card-container';
 
+            // Unique ID
+            const checkboxId = `isRead-${index}`;
+
             bookCardContainer.innerHTML = `
                 <div class="book-card">
                     <h3>Title:
@@ -76,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="button-container">
                         <div class="checkbox-wrapper-32">
                             <label for="isRead"> Have you read it? </label>
-                            <input type="checkbox" id="isRead" class="toggle-read" data-index="${index}"/>
+                            <input type="checkbox" id="${checkboxId}" class="toggle-read" data-index="${index}"/>
                             <svg
                                 viewBox="0 0 100 100"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Closes the dialog
         document.getElementById('addBookModal').close();
+
+        // Reset the 'isRead' checkbox in the form
+        document.getElementById('isRead').checked = false;
 
         // Reset form after closing
         event.target.reset();
